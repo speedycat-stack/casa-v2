@@ -13,6 +13,7 @@ const Profile = lazy(() => import("./Pages/ProfileP"));
 const Map = lazy(() => import("./Pages/MapP"));
 const Donation = lazy(() => import("./features/donation/pages/DonationPage"));
 const Volunteer = lazy(() => import("./Pages/VolunteerP"));
+const ConfirmVolunteerAction = lazy(() => import("./Pages/ConfirmVolunteerAction"));
 const DetailProduct = lazy(() =>
   import("./components/Products/DetailProduct/DetailProduct")
 );
@@ -68,6 +69,7 @@ function App() {
             <Route path="/map" element={<Map />} />
             <Route path="/auth/*" element={<Auth />} />
             <Route path="/volunteer" element={<Volunteer />} />
+            <Route path="/confirm-volunteer-action" element={<ConfirmVolunteerAction />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/payment" element={<PaymentPage />} />

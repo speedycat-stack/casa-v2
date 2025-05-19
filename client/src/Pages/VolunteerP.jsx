@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import boxIcon from "../assets/box.png";
 import "./VolunteerP.css";
 
 const VolunteerP = () => {
+  const navigate = useNavigate();
   // Sample data for volunteer orders
   const volunteerOrders = [
     { id: "04596995", type: "Milk, Tomatoes, Bread", eggs: true },
@@ -21,7 +24,8 @@ const VolunteerP = () => {
   // Function to handle volunteer order selection
   const handleSelect = (orderId) => {
     console.log(`Selected order: ${orderId}`);
-    // Implementation for selecting an order would go here
+    // Navigate to confirmation form page with order ID
+    navigate("/confirm-volunteer-action", { state: { orderId } });
   };
 
   return (
@@ -40,21 +44,7 @@ const VolunteerP = () => {
           >
             <div className="order-card-content">
               <div className="order-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img src={boxIcon} alt="Box icon" width="24" height="24" />
               </div>
               <div className="order-details">
                 <p className="order-label">Order Number</p>
