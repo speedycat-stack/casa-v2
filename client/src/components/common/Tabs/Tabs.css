@@ -1,0 +1,161 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tab-list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.tab:hover {
+  color: #333;
+}
+
+.tab-active {
+  color: #007bff;
+}
+
+.tab-active::after {
+  background-color: #007bff;
+}
+
+.tab-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.tabs-default .tab {
+  margin-right: 1rem;
+}
+
+.tabs-default .tab-list {
+  background: transparent;
+}
+
+.tabs-pills .tab-list {
+  border-bottom: none;
+  gap: 0.5rem;
+}
+
+.tabs-pills .tab {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+.tabs-pills .tab-active {
+  background: #007bff;
+  color: white;
+}
+
+.tabs-filled .tab-list {
+  background: #f8f9fa;
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.tabs-filled .tab {
+  border-radius: 4px;
+}
+
+.tabs-filled .tab-active {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-filled .tab::after {
+  display: none;
+}
+
+.tabs-vertical {
+  flex-direction: row;
+}
+
+.tabs-vertical .tab-list {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid #ddd;
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.tabs-vertical .tab {
+  text-align: left;
+  border-bottom: none;
+  border-right: 2px solid transparent;
+}
+
+.tabs-vertical .tab-active {
+  border-right-color: #007bff;
+}
+
+.tab-panels {
+  padding: 1rem 0;
+}
+
+.tab-panel {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Focus styles */
+.tab:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border-radius: 4px;
+}
+
+/* Mobile styles */
+@media (max-width: 576px) {
+  .tab-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+  }
+}

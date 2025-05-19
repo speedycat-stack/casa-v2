@@ -1,0 +1,67 @@
+
+.partners-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.partners-content h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700; 
+  font-size: 47.78px; 
+  line-height: 100%; 
+  letter-spacing: 0%; 
+  text-align: center; 
+  text-transform: capitalize; 
+  color: #0D0235; 
+  width: 707px; 
+  height: 60px;
+  position: relative;
+  top: 72px; 
+  left: 366px;
+  transform: rotate(0deg); 
+  margin-bottom: 100px; 
+}
+
+.partners-logos {
+  width: 1440px; 
+  height: 485px; 
+  position: relative;
+  top: 3801px; 
+  margin: 0 auto; 
+  margin-bottom: 70px;
+}
+
+.logo-row img {
+  width: 1383.29px; 
+  height: 224.57px; 
+  margin-top: 20px; 
+  object-fit: contain; 
+}
+
+.logo-row img {
+  max-width: 120px; 
+  height: auto; 
+  object-fit: contain; 
+}
+
+.partners-logos {
+  width: 100%; 
+  height: auto; 
+  top: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-row img {
+    width: 100%; 
+    height: auto; 
+  }
+  .partners-content h2{
+
+    width: 90%;
+    margin-left: -350PX;
+    margin-right:     auto;
+    height: auto;
+    font-size: 32px;
+  }
+
+}

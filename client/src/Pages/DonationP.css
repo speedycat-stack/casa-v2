@@ -1,0 +1,104 @@
+.donation-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.donation-header {
+  background-color: #7da9f7;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.donation-main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.order-summary {
+  background-color: #0D0235;
+  color: #ffffff;
+  width: 482px;
+  min-height: 330px;
+  padding: 42px;
+  border-radius: 20px;
+  box-shadow: 20px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* Removed margin-left and margin-right to rely on flexbox */
+  z-index: 1000;
+  flex-shrink: 0; /* prevent shrinking */
+  box-sizing: border-box;
+}
+
+.order-summary h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 46px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.checkout-btn {
+  background-color: #7FB5FF;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.donation-content {
+  flex: 1;
+  margin-left: 540px; /* Adjust based on the width of the order summary */
+}
+
+.donation-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 30px;
+}
+
+.donation-footer a {
+  padding: 10px 20px;
+  background-color: #7FB5FF;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.donation-footer a:hover {
+  background-color: #6ea8f7;
+}
+
+.donation-footer a.active-nav {
+  background-color: #0D0235;
+}

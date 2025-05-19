@@ -1,0 +1,187 @@
+/* Linear Progress Bar */
+.progress {
+  width: 100%;
+  overflow: hidden;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+/* Progress colors */
+.progress-primary, .circular-progress-primary {
+  color: #007bff;
+}
+
+.progress-secondary, .circular-progress-secondary {
+  color: #6c757d;
+}
+
+.progress-success, .circular-progress-success {
+  color: #28a745;
+}
+
+.progress-warning, .circular-progress-warning {
+  color: #ffc107;
+}
+
+.progress-error, .circular-progress-error {
+  color: #dc3545;
+}
+
+/* Indeterminate animation */
+.progress-indeterminate .progress-bar {
+  width: 50%;
+  animation: indeterminate 1.5s infinite linear;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  width: 100%;
+}
+
+.progress-steps-horizontal {
+  flex-direction: row;
+}
+
+.progress-steps-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progress-step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.progress-steps-vertical .progress-step {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.progress-step-indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.progress-step.completed .progress-step-indicator {
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.progress-step.current .progress-step-indicator {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.progress-step-content {
+  margin: 0 1rem;
+}
+
+.progress-step-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.progress-step-description {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.progress-step-connector {
+  flex: 1;
+  height: 2px;
+  background: #e9ecef;
+  position: absolute;
+}
+
+.progress-steps-horizontal .progress-step-connector {
+  left: calc(50% + 16px);
+  right: calc(-50% + 16px);
+  top: 16px;
+}
+
+.progress-steps-vertical .progress-step-connector {
+  width: 2px;
+  left: 16px;
+  top: 32px;
+  bottom: -16px;
+}
+
+.progress-step.completed .progress-step-connector {
+  background: #28a745;
+}
+
+/* Circular Progress */
+.circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress-background {
+  stroke: #e9ecef;
+}
+
+.circular-progress-circle {
+  stroke: currentColor;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.circular-progress-label {
+  position: absolute;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Indeterminate circular animation */
+.circular-progress-indeterminate .circular-progress-circle {
+  animation: circular-indeterminate 1.5s linear infinite;
+}
+
+@keyframes circular-indeterminate {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125;
+  }
+}

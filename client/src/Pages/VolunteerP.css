@@ -1,0 +1,239 @@
+.volunteer-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.volunteer-hero-banner {
+  width: 100%;
+  height: 730px;
+  background-image: url("../assets/volumnteer.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero-overlay h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.volunteer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.volunteer-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.volunteer-info h2 {
+  color: #0d0235;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.volunteer-info ul {
+  padding-left: 20px;
+}
+
+.volunteer-info li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.volunteer-form-container {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f5f5f5;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.volunteer-form-container h2 {
+  color: #0d0235;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.volunteer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #0d0235;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.submit-btn:hover {
+  background-color: #1a0968;
+}
+
+.volunteer-orders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.order-card {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.order-card.dark {
+  background-color: #0d0235;
+  color: white;
+}
+
+.order-card.light {
+  background-color: #f5f5f5;
+  color: #0d0235;
+}
+
+.order-card-content {
+  display: flex;
+  gap: 10px;
+}
+
+.order-icon {
+  margin-top: 5px;
+}
+
+.order-details {
+  flex: 1;
+}
+
+.order-label {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.order-id {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.order-items,
+.order-eggs {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.order-btn {
+  align-self: flex-end;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.next-dark {
+  background-color: #4a98ff;
+  color: white;
+}
+
+.next-light {
+  background-color: #0d0235;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .volunteer-orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .volunteer-content {
+    flex-direction: column;
+  }
+
+  .volunteer-hero h1 {
+    font-size: 2rem;
+  }
+
+  .volunteer-hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .volunteer-orders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+  }
+}

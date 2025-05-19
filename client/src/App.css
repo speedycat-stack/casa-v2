@@ -1,0 +1,22 @@
+.main-content {
+  min-height: calc(100vh - 120px); /* Adjust based on your navbar and footer heights */
+  padding-top: 80px; /* Space for fixed navbar */
+  padding-bottom: 40px; /* Space before footer */
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Special routes like login and inscription don't need padding for navbar */
+.main-content.special-route {
+  padding-top: 0;
+}
+
+/* Add responsive adjustments if needed */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

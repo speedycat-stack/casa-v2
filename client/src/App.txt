@@ -1,0 +1,431 @@
+import React, { Suspense, lazy } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+
+// Import des composants de mise en page pour éviter la répétition des Navbar, Footer...
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import BackButton from "./components/BackButton/BackButton";
+import Orders from "./components/Orders/Orders";  
+import Traceability from "./components/Traceability/Traceability";  
+import Account from "./components/Account/Account";  
+import Profil from "./components/Profil/Profil";  
+// Lazy-loaded components
+const Home = lazy(() => import("./Pages/Home"));
+const ProductP = lazy(() => import("./Pages/ProductP"));
+const ContactP = lazy(() => import("./Pages/ContactP"));
+const InscriptionP = lazy(() => import("./Pages/InscriptionP"));
+const About = lazy(() => import("./components/About/About"));
+const Mission = lazy(() => import("./components/Mission/Mission"));
+const Partners = lazy(() => import("./components/Partners/Partners"));
+const Login = lazy(() => import("./components/Login/Login"));
+const ProfileP = lazy(() => import("./Pages/ProfileP"));
+const MapP = lazy(() => import("./Pages/MapP"));
+const DonationP = lazy(() => import("./Pages/DonationP"));
+const Payment = lazy(() => import("./components/Payment/Payment"));
+const Checkout = lazy(() => import("./components/Checkout/Checkout"));
+const Box = lazy(() => import("./components/Box/Box"));
+
+
+
+function App() {
+  const location = useLocation(); // Utilisation de location pour gérer la clé dynamique
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes location={location} key={location.pathname}>
+        {/* Pages principales */}
+        <Route path="/" element={<Home />} />
+        <Route path="/product" element={<ProductP />} />
+        <Route path="/contact" element={<ContactP />} />
+        <Route path="/inscription" element={<InscriptionP />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Pages avec des sections communes comme Navbar et Footer */}
+        <Route path="/about" element={<About />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/partners" element={<Partners />} />
+        <Route path="/map" element={<MapP />} />
+
+        {/* Profile section avec des sous-routes */}
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <BackButton /> 
+            <ProfileP /> 
+            <Footer /> 
+          </>
+        }>
+         
+          <Route path="orders" element={<Orders />} />
+          <Route path="traceability" element={<Traceability />} />
+          <Route path="profile" element={<Profil />} />
+          <Route path="account" element={<Account />} />
+        </Route>
+
+        {/* Donor related pages */}
+        <Route path="/donation" element={<DonationP />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/box" element={<Box />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
+export default App;
+
+
+
+
+.sdg-section {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sdg-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sdg-item {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100px;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main-content {
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #007bff;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+
+
+
+--------------------------------
+import React, { Suspense, lazy, useState, useEffect } from "react";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+
+// Import Footer, BackButton, etc.
+import Footer from "./components/Footer/Footer";
+import BackButton from "./components/BackButton/BackButton";
+import Orders from "./components/Orders/Orders";
+import Traceability from "./components/Traceability/Traceability";
+import Account from "./components/Account/Account";
+import Profil from "./components/Profil/Profil";
+
+// Lazy-loaded components
+const Home = lazy(() => import("./Pages/Home"));
+const ProductP = lazy(() => import("./Pages/ProductP"));
+const ContactP = lazy(() => import("./Pages/ContactP"));
+const InscriptionP = lazy(() => import("./Pages/InscriptionP"));
+const About = lazy(() => import("./components/About/About"));
+const Mission = lazy(() => import("./components/Mission/Mission"));
+const Partners = lazy(() => import("./components/Partners/Partners"));
+const Login = lazy(() => import("./components/Login/Login"));
+const ProfileP = lazy(() => import("./Pages/ProfileP"));
+const MapP = lazy(() => import("./Pages/MapP"));
+const DonationP = lazy(() => import("./Pages/DonationP"));
+const Payment = lazy(() => import("./components/Payment/Payment"));
+const Checkout = lazy(() => import("./components/Checkout/Checkout"));
+const Box = lazy(() => import("./components/Box/Box"));
+
+function App() {
+  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Mobile responsiveness handler
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Dynamic rendering of the navbar
+  const Navbar = () => {
+    return (
+      <div className={`custom-navbar`}>
+        <img src="/assets/C-blanc.png" alt="Logo" className="custom-logo" />
+
+        {isMobile && (
+          <div className="menu-icon" onClick={toggleMenu}>
+            {isMenuOpen ? '✕' : '☰'}
+          </div>
+        )}
+
+        <ul className={`custom-nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>
+          <li><a href="/" style={{ color: "#FFFFFF" }}>HOME</a></li>
+          <li><a href="/product" style={{ color: "#FFFFFF" }}>PRODUCT</a></li>
+          <li><a href="/map" style={{ color: "#FFFFFF" }}>MAP</a></li>
+          <li><a href="/contact" style={{ color: "#FFFFFF" }}>CONTACT</a></li>
+        </ul>
+
+        <div className="custom-right">
+          <a href="/donation">
+            <span className="cart-icon">🛒</span>
+          </a>
+          <a href="/inscription">
+            <button className="join-btn">JOIN US</button>
+          </a>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes location={location} key={location.pathname}>
+        {/* Pages principales */}
+        <Route path="/" element={<Home />} />
+        <Route path="/product" element={<ProductP />} />
+        <Route path="/contact" element={<ContactP />} />
+        <Route path="/inscription" element={<InscriptionP />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* Pages avec des sections communes comme Navbar et Footer */}
+        <Route path="/about" element={<About />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/partners" element={<Partners />} />
+        <Route path="/map" element={<MapP />} />
+
+        {/* Profile section with nested routes */}
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <BackButton />
+            <ProfileP />
+            <Footer />
+          </>
+        }>
+          <Route path="orders" element={<Orders />} />
+          <Route path="traceability" element={<Traceability />} />
+          <Route path="profile" element={<Profil />} />
+          <Route path="account" element={<Account />} />
+        </Route>
+
+        {/* Donation section with nested routes */}
+        <Route path="/donation" element={<DonationP />} >
+          <Route index element={<Box />} />
+          <Route path="box" element={<Box />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="payment" element={<Payment />} />
+        </Route>
+
+        {/* Redirects for old routes */}
+        <Route path="/payment" element={<Navigate to="/donation/payment" replace />} />
+        <Route path="/checkout" element={<Navigate to="/donation/checkout" replace />} />
+        <Route path="/box" element={<Navigate to="/donation/box" replace />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
+export default App;
+==========================================
+.custom-navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1307px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  font-family: 'Switzer', sans-serif;
+  z-index: 1000;
+}
+
+.custom-navbar.inscription-navbar {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.custom-logo {
+  width: 33.839px;
+  height: 22.131px;
+}
+
+.custom-nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-nav-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(78, 83, 102, 0.5);
+  text-transform: uppercase;
+}
+
+.custom-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.join-btn {
+  width: 108px;
+  height: 37px;
+  background-color: #7FB5FF;
+  border: none;
+  border-radius: 34px;
+  padding: 8px 24px;
+  color: #0E0E0E;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: Bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 34px;
+  cursor: pointer;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .custom-navbar {
+    padding: 0 20px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+  }
+
+  .menu-icon {
+    display: block;
+    order: 1;
+    margin-right: auto;
+    padding: 0 10px;
+  }
+
+  .custom-nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding: 20px 0;
+    margin-top: 10px;
+    background:#7FB5FF;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+  }
+
+  .custom-nav-links.mobile-open {
+    display: flex;
+  }
+
+  .custom-right {
+    order: 2;
+    margin-left: 10px;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-navbar {
+    width: 90%;
+  }
+
+  .join-btn {
+
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}

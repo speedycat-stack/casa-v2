@@ -1,0 +1,540 @@
+import React from "react";
+import "./Card.css"; 
+import lait from "../../assets/lait.png";
+import hrisa from "../../assets/hrisaCap.png"; 
+import faa from "../../assets/faa.png";
+import maakrna from "../../assets/maakrna.png";
+
+const Card = () => {
+  return (
+    <div className="card-container">
+ 
+      <div className="card-title">CARD</div>
+
+   
+      <div className="product-list">
+        <div className="product-item">
+          <img src={faa} alt="Product" />
+          <div className="product-info">
+            <p>Lorem Ipsum Dolor</p>
+            <div className="product-options">
+             
+                <button>-</button>
+              <span>1</span>
+              <button>+</button>
+             
+              <span>3 DT</span>
+            </div>
+            <button className="remove-btn">X</button>
+          </div>
+        </div>
+        <div className="product-item">
+          <img src={lait} alt="Product" />
+          <div className="product-info">
+            <p>Lorem Ipsum Dolor</p>
+            <div className="product-options">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+              <span>1.2 DT</span>
+            </div>
+            <button className="remove-btn">X</button>
+          </div>
+        </div>
+        <div className="product-item">
+          <img src={maakrna} alt="Product" />
+          <div className="product-info">
+            <p>Lorem Ipsum Dolor </p>
+            <div className="product-options">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+              <span>7 DT</span>
+            </div>
+            <button className="remove-btn">X</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="order-summary">
+        <h3>Order Summary</h3>
+        <div className="summary-item">
+          <p>Lorem Ipsum</p>
+          <p>300</p>
+        </div>
+        <div className="summary-item">
+          <p>Lorem Ipsum</p>
+          <p>300</p>
+        </div>
+        <div className="total">
+          <p>Total</p>
+          <p>300</p>
+        </div>
+        <button className="checkout-btn">CONTINUE TO CHECKOUT</button>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+/* General body styles */
+body {
+  background-color: #e5e7eb;
+  padding: 150px 100px; /* Adjusted padding for better layout */
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Main container for centering content */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Title for the page */
+.card-title {
+  width: 1315px;
+  height: 57px;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color:  #0D0235;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Main content area */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+}
+
+/* Responsiveness: Align items horizontally on large screens */
+@media (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Product list container styling */
+.product-list {
+  width: 720px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #ffffff;
+  padding: 40px 40px ;
+  border-radius: 29px;
+  border-width: 0.5px;
+  border-color: #d1d5db;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual product item styling */
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Product image styling */
+.product-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+/* Product info text styling */
+.product-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.product-info p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 16px;
+}
+
+/* Product options (buttons and quantity) */
+.product-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-options button {
+  background-color: #e5e7eb;
+  color: #374151;
+  padding: 1px 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.product-options span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Remove button styling */
+.remove-btn {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 16px;
+  border-radius: 1Px solid #ef4444;
+}
+
+/* Order summary container */
+.order-summary {
+  background-color:  #0D0235;
+
+  color: #ffffff;
+  width: 482px;
+  height: 330px;
+  padding: 42px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 250px;
+  right: 140px;
+  gap: 26px;
+}
+
+/* Heading for order summary */
+.order-summary h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+
+/* Layout for summary items */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+/* Total cost display */
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Checkout button styling */
+.checkout-btn {
+  background-color: #7FB5FF;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 60%; /* Adjust the width as necessary */
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+
+---------------------------
+.box-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+  background-color: #E6E8E9;
+  color: #1A1A2E;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-container {
+  background-color: #F5F6F7;
+  border-radius: 1rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+.card-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item-info img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.375rem;
+  object-fit: cover;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.quantity-control button {
+  color: #1A1A2E;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 0.875rem;
+}
+
+.remove-btn {
+  color: #D9D9D9;
+  font-weight: 600;
+}
+
+.order-summary {
+  background-color: #0B0B3B;
+  color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.order-summary h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  border-color: #2E2E6E;
+  margin: 1rem 0;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-btn {
+  background-color: #6B9AF8;
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  width: 100%;
+}
+
+.complete-order h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+}
+
+.products-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.products-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card {
+  flex-shrink: 0;
+  width: 10rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+}
+
+.product-card img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-card h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.product-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.fa-plus-circle {
+  color: #6B9AF8;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+  }
+  
+  .card-container {
+    max-width: 600px;
+  }
+  
+  .order-summary {
+    margin-top: 0;
+  }
+  
+  .product-card {
+    width: 11rem;
+  }
+  
+  .product-card img {
+    height: 11rem;
+  }
+}
+
+import React from 'react';
+import './Box.css';
+import lait from "../../assets/lait.png";
+import hrisa from "../../assets/hrisaCap.png";
+import faa from "../../assets/faa.png";
+import maakrna from "../../assets/maakrna.png";
+
+const Box = () => {
+  const cartItems = [
+    { id: 1, name: "Lorem Ipsum Dolor", price: 3, image: "https://storage.googleapis.com/a1aa/image/75ac464c-8746-4443-4cbd-cf70b4779821.jpg" },
+    { id: 2, name: "Lorem Ipsum Dolor", price: 1.2, image: "https://storage.googleapis.com/a1aa/image/7769afa4-7460-4310-b8a9-dd0d45f234a9.jpg" },
+    { id: 3, name: "Lorem Ipsum Dolor Sit Ame", price: 7, image: "https://storage.googleapis.com/a1aa/image/b8b3b331-765b-413a-b590-fcbc3d25e748.jpg" }
+  ];
+
+  const products = [
+    { id: 1, name: "Lait - délice - 1 L", price: 1, image: lait },
+    { id: 2, name: "Hrisa Cap", price: 1, image: hrisa },
+    { id: 3, name: "Faa", price: 1, image: faa },
+    { id: 4, name: "Maakrna", price: 1, image: maakrna }
+  ];
+
+  return (
+    <div className="box-container">
+      <h2>CARD</h2>
+      
+      <div className="main-content">
+        <div className="card-container">
+          <ul>
+            {cartItems.map(item => (
+              <li key={item.id}>
+                <div className="item-info">
+                  <img src={item.image} alt={item.name} />
+                  <span>{item.name}</span>
+                </div>
+                <div className="quantity-control">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <span className="price">{item.price} DT</span>
+                <button className="remove-btn">×</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="order-summary">
+          <h3>Order Summary</h3>
+          <div className="summary-item">
+            <span>Lorem Ipsum</span>
+            <span>300</span>
+          </div>
+          <div className="summary-item">
+            <span>Lorem Ipsum</span>
+            <span>300</span>
+          </div>
+          <hr />
+          <div className="total">
+            <span>Total:</span>
+            <span>300</span>
+          </div>
+          <button className="checkout-btn">CONTINUE TO CHECKOUT</button>
+        </div>
+      </div>
+
+      <section className="complete-order">
+        <h3>To Complete Your Order</h3>
+        <div className="products-scroll">
+          {products.map(product => (
+            <div key={product.id} className="product-card">
+              <img src={product.image} alt={product.name} />
+              <h4>{product.name}</h4>
+              <div className="product-control">
+                <span>{product.price}DT</span>
+                <button>
+                  <i className="fas fa-plus-circle"></i>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Box;

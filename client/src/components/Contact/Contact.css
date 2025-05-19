@@ -1,0 +1,127 @@
+
+.contact-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F2F2F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contact-container {
+  width: 100%;
+  max-width: 768px;
+  text-align: center;
+  padding: 60px 20px;
+  
+  border-radius: 13px;
+  
+}
+
+
+.contact-tagline {
+  font-family: Switzer, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #0D0235;
+}
+
+.contact-title {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 57.6px;
+  text-align: center;
+  color: #0D0235;
+}
+
+.contact-subtitle {
+  font-family: Switzer, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: #000000;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact-input, .contact-textarea {
+  width: 560px;
+  height: 48px;
+  padding: 12px;
+  border: 1px solid #0D0235;
+  border-radius: 32px;
+  font-size: 16px;
+  background: #F2F2F2;
+  background-color: white;
+}
+
+.contact-textarea {
+  height: 185px;
+  resize: none;
+}
+
+
+.contact-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.checkbox-label {
+  font-family: Switzer, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+}
+
+
+.contact-submit {
+  width: 142px;
+  height: 48px;
+  background: #7FB5FF;
+  border: none;
+  border-radius: 34px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-submit:hover {
+  background: #649EEB;
+}
+
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 36px;
+    line-height: 45px;
+  }
+
+  .contact-input, .contact-textarea {
+    width: 100%;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+}

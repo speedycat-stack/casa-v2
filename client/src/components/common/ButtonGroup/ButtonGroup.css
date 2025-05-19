@@ -1,0 +1,72 @@
+.button-group {
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.button-group-vertical {
+  flex-direction: column;
+}
+
+/* Remove individual button borders and radius when in group */
+.button-group-item {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.button-group-item:not(:last-child) {
+  border-right-width: 0;
+}
+
+.button-group-vertical .button-group-item:not(:last-child) {
+  border-right-width: 1px;
+  border-bottom-width: 0;
+}
+
+/* First and last items border radius */
+.button-group:not(.button-group-vertical) > .button-group-item:first-child {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+.button-group:not(.button-group-vertical) > .button-group-item:last-child {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.button-group-vertical > .button-group-item:first-child {
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.button-group-vertical > .button-group-item:last-child {
+  border-bottom-left-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+/* Sizes */
+.button-group-small > .button-group-item {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.button-group-medium > .button-group-item {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.button-group-large > .button-group-item {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Hover effect to show separation */
+.button-group-item:hover {
+  z-index: 1;
+}
+
+/* Focus styles */
+.button-group-item:focus {
+  z-index: 2;
+  position: relative;
+}

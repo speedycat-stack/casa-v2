@@ -1,0 +1,88 @@
+/*.inscription-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.5); 
+    position: relative;
+    z-index: 0;
+  }
+  
+ 
+  .inscription-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1;}
+    .custom-navbar {
+        width: 90%;             
+        max-width: 1300px;       
+        margin: 20px auto 0;     
+        height: 56px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        background-color: white;
+        border-radius: 11px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+        position: relative;
+        z-index: 1000;
+        right: 50ù;
+      }
+      
+      
+      .navbar-shadow {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .inscription-wrapper {
+        width: 90%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .inscription-wrapper {
+        width: 90%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+     
+.inscription-page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 100px 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .inscription-page-container {
+    background-color: rgba(255, 255, 255, 0.5); 
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .inscription-content {
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-inscription {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 12px 24px;
+    width: 80%;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+  }*/

@@ -1,0 +1,40 @@
+
+.home-page {
+  font-family: Arial, sans-serif;
+}
+
+
+.section-padding {
+  padding: 50px 0;
+}
+
+
+#header {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+
+#mission {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+
+#goals {
+  background-color: #e2e2e2;
+  padding: 40px 0;
+}
+
+
+#partners {
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

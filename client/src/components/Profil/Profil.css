@@ -1,0 +1,91 @@
+profile-content {
+  display: flex;
+  gap: 34px;
+  max-width: 1200px;
+  width: 100%;
+ 
+}
+
+.profile-info {
+  border: 1px solid rgba(10, 10, 58, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 800px;
+  height: 350px;
+  margin-top: -470px;
+  margin-left: 390px;
+  background-color: white;
+  flex-grow: 1;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.info-item {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #0a0a23;
+  display: flex;
+  align-items: center;
+}
+
+.info-item span:first-child {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+/* Responsive for Mobile 393x812 */
+@media (max-width: 393px) {
+  .profile-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+  }
+  .profile-info {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 1rem !important;
+    margin-left: 0 !important;
+    padding: 1rem !important;
+  }
+  .info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+  }
+  .info-item {
+    font-size: 0.875rem !important;
+    padding: 0.3rem !important;
+  }
+}
+
+
+@media (min-width: 394px) and (max-width: 1024px) {
+  .profile-content {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    max-width: 90vw !important;
+    margin: 2rem auto !important;
+  }
+  .profile-info {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 2rem !important;
+    margin-left: 0 !important;
+    padding: 1.5rem !important;
+  }
+  .info-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+    padding: 1.5rem !important;
+  }
+  .info-item {
+    font-size: 0.95rem !important;
+    padding: 0.4rem !important;
+  }
+}

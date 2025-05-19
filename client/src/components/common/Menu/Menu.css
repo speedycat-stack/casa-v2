@@ -1,0 +1,95 @@
+.menu {
+  min-width: 200px;
+  max-width: 320px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.menu-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover:not(.menu-item-disabled) {
+  background-color: #f8f9fa;
+}
+
+.menu-item:active:not(.menu-item-disabled) {
+  background-color: #e9ecef;
+}
+
+.menu-item-disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.menu-item-icon {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.menu-divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  background-color: #dee2e6;
+}
+
+/* Focus styles */
+.menu-item:focus {
+  outline: none;
+  background-color: #f8f9fa;
+}
+
+.menu-item:focus:not(:focus-visible) {
+  background-color: transparent;
+}
+
+.menu-item:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) inset;
+}
+
+/* Animation */
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes menu-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

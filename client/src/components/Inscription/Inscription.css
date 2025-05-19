@@ -1,0 +1,183 @@
+.inscription-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px;
+  box-sizing: border-box;
+  margin: 100px 0px 0px;
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  color: #4a6fa5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-container p {
+  font-size: 16px;
+  color: #7f7f7f;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.social-icon img {
+  width: 60%;
+  height: 60%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #c5d0e6;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #f9fbff;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #7fb5ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #5f9eff;
+}
+
+.login-link {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #4a6fa5;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
+  width: 100%;
+  max-height: 590px;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: brightness(1.1) contrast(0.95);
+}
+
+@media (max-width: 768px) {
+  .inscription-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-container h2 {
+    font-size: 20px;
+  }
+
+  .form-container p {
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .input-field {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .login-link {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .inscription-container {
+    padding: 0 10%;
+  }
+
+  .form-container {
+    padding: 40px;
+  }
+
+  .image {
+    max-height: 700px;
+  }
+}

@@ -1,0 +1,213 @@
+import React, { useState } from 'react';
+import Orders from "../components/Orders/Orders"; 
+import Account from "../components/Account/Account";
+import Traceability from "../components/Traceability/Traceability"; 
+import Profil from "../components/Profil/Profil";
+import './ProfileP.css';
+
+const ProfileP = () => {
+  const [activeComponent, setActiveComponent] = useState('Manage Your Account');
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'Orders':
+        return <Orders />;
+      case 'Your Account':
+        return <Account />;
+      case 'Traceability':
+        return <Traceability />;
+      case 'Manage Your Account':
+        return <Profil />;
+      default:
+        return <div>Select a component from the sidebar.</div>;
+    }
+  };
+
+  return (
+    <div className="account-container">
+      <header className="account-header">
+        <h1>WE MAKE A BIG CHANGE</h1>
+      </header>
+
+      <main className="account-main">
+        {/* Sidebar */}
+        <aside className="account-sidebar">
+          <div className="user-profile">
+            <div className="profile-icon">
+              W
+              <span className="profile-badge">
+                <i className="fas fa-lock"></i>
+              </span>
+            </div>
+            <span className="profile-title">Orders</span>
+          </div>
+
+          <nav className="sidebar-nav">
+            <a
+              href="#"
+              className={`nav-link ${activeComponent === 'Your Account' ? 'active' : ''}`}
+              onClick={() => setActiveComponent('Your Account')}
+            >
+              Your Account
+            </a>
+            <a
+              href="#"
+              className={`nav-link ${activeComponent === 'Orders' ? 'active' : ''}`}
+              onClick={() => setActiveComponent('Orders')}
+            >
+              Your Orders
+            </a>
+            <a
+              href="#"
+              className={`nav-link ${activeComponent === 'Traceability' ? 'active' : ''}`}
+              onClick={() => setActiveComponent('Traceability')}
+            >
+              Traceability
+            </a>
+            <a
+              href="#"
+              className={`nav-link ${activeComponent === 'Volunteering' ? 'active' : ''}`}
+              onClick={() => setActiveComponent('Volunteering')}
+            >
+              Volunteering
+            </a>
+            <a
+              href="#"
+              className={`nav-link active`}
+              onClick={() => setActiveComponent('Manage Your Account')}
+            >
+              Manage Your Account
+            </a>
+            <a
+              href="#"
+              className="nav-link"
+              onClick={() => setActiveComponent('Logout')}
+            >
+              Logout
+            </a>
+          </nav>
+        </aside>
+
+     
+        <div className="account-content">
+          {renderComponent()}
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default ProfileP;
+
+.account-container {
+    background-color: #d9d9d9;
+    min-height: 100vh;
+    padding: 240px;
+    max-width: 1900px;
+    margin: 0 auto;
+  }
+  
+  .account-header h1 {
+    background-color: #7da9f7;
+  color: #0a1034;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 12px;
+  padding: 19px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 1900px;
+  margin-right: 29px;
+  padding: 30px;
+  margin-bottom: 50px;
+
+  }
+  
+  .account-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .account-sidebar {
+    background-color: #F2F2F2;
+    ;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 100%;
+  height: 445px;
+  width: 297px;
+  gap:64px;
+  
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;margin-bottom: 39px;
+  }
+  
+  .profile-icon {
+    background-color: #0a0a23;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 600;
+    font-size: 1.25rem;
+  
+  }
+  
+  .profile-badge {
+    position: absolute;
+  bottom: -0.25rem;
+  right: -0.25rem;
+  background-color: #6ea8f7;
+  border: 2px solid white;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+
+  }
+  
+  .profile-title {
+    color: #0a0a23;
+    font-weight: 600;
+    font-size: 24px;
+  
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+
+  }
+  
+  .nav-link {
+    color: #7a7a7a;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    height: 26px;
+  }
+  
+  .nav-link.active {
+    color: #0a0a23;
+    font-weight: 700;
+  }
+  
+  .nav-link:hover {
+    color: #0a0a23;
+  }
